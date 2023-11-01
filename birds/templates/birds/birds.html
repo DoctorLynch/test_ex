@@ -1,0 +1,25 @@
+{% extends 'birds/base.html' %}
+{% load my_tags %}
+{% block content %}
+<div class="container text-center" xmlns="">
+    <p class="lead">Добро пожаловать в мой курятник)!</p>
+    <div class="col-12 mb-5">
+       <a class="btn btn-outline-primary" href="{% url 'birds:create' %}"  type="button" class="btn btn-lg btn-block btn-outline-primary">Добавить птичку</a>
+     {% for object in object_list %}
+    <div class="row">
+        <div class="col">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">{{ object }}</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mt-3 mb-4 text-start m-3 ">
+                        <li><img src="{{ object.image_bird|mymedia }}" class="img-fluid"/></li>
+                    </ul>
+                    <a href="{% url 'birds:view' object.pk %}"  type="button" class="btn btn-lg btn-block btn-outline-primary">Описание</a>
+                    <a href="{% url 'birds:delete' object.pk %}"  type="button" class="btn btn-lg btn-block btn-outline-primary">Удалить</a>
+                    <a href="{% url 'birds:edit' object.pk %}"  type="button" class="btn btn-lg btn-block btn-outline-primary">Изменить</a>
+                </div>
+            </div>
+            {% endfor %}
+   {% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'birds/base.html' %}
+{% load my_tags %}
+    {% block content %}
+        <div class="col-12">
+            <div class="row">
+
+                <div class="col-6">
+                    <div class="card">
+                      <div class="card-header">
+                        <h3 class="card-title">
+                          Информация о Птице
+                        </h3>
+                      </div>
+                 <div class="card-body">
+                   <table class="table">
+                     <tr>
+                       <td>Название</td>
+                       <td>{{ object.name }}</td>
+                     </tr>
+                     <tr>
+                       <td>Цвет крыльев</td>
+                       <td>{{ object.color_feather }} </td>
+                     </tr>
+                     <tr>
+                       <td>Фото</td>
+                       <td><img src="{{ object.image_bird|mymedia }}" class="img-fluid"/></td>
+                     </tr>
+                   </table>
+                </div>
+                      <div class="card-footer"></div>
+                  </div>
+                  </div>
+            </div>
+        </div>
+
+    {% endblock %}
